@@ -1,0 +1,19 @@
+name: Auto cleanup gist
+
+on:
+
+  push:
+    branches:
+      - master
+      
+  schedule:
+  - cron: "0 7 * * 1"
+
+jobs:
+  auto_cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2      
+        with:
+         persist-credentials: false
+         fetch-depth: 0
