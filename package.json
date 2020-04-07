@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/irfan-maulana-tkp/auto-cleanup-gist#readme",
   "dependencies": {
-    "@octokit/rest": "16.43.1",
+    "@octokit/rest": "16.43.1"
   }
 }
