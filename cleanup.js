@@ -8,6 +8,7 @@ const runCleanup = async () => {
 	try {
 		const gists = await octokit.gists.listPublicForUser({
 			username: process.env.GIST_USERNAME,
+			per_page: 100
 		});
 
 		if (gists.data && gists.data.length > 0) {
