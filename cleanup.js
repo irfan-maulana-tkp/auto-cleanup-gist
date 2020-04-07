@@ -12,7 +12,7 @@ const runCleanup = async () => {
 
 		if (gists.data && gists.data.length > 0) {
 			gists.data.map(gist => {
-				clientWithAuth.gists.delete({
+				octokit.gists.delete({
 					gist_id: gist.id
 				});
 				const m = `> Delete gist file ${gist.html_url}`;
