@@ -13,7 +13,31 @@ jobs:
   auto_cleanup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2      
+      - name: Checkout code
+        uses: actions/checkout@v2      
         with:
          persist-credentials: false
          fetch-depth: 0
+         
+      - name: Use node 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+          
+      - name: Cache Node.js modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+      
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run autocleanup
+        run: npm run cleanup
+        env:
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          GIST_USERNAME: ${{ secrets.GIST_USERNAME }}
