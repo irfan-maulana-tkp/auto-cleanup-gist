@@ -1,0 +1,23 @@
+{
+  "name": "auto-cleanup-gist",
+  "version": "1.0.0",
+  "description": "Auto delete all gists",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "cleanup": "node ./cleanup.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irfan-maulana-tkp/auto-cleanup-gist.git"
+  },
+  "author": "Irfan Maulana",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/irfan-maulana-tkp/auto-cleanup-gist/issues"
+  },
+  "homepage": "https://github.com/irfan-maulana-tkp/auto-cleanup-gist#readme",
+  "dependencies": {
+    "@octokit/rest": "16.43.1",
+  }
+}
